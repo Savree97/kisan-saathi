@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kisan Saathi — Sahi Maloomat, Sahi Faisla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.32.0/plotly.min.js"></script>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<!-- ───────────────────────── Top Nav (desktop) ───────────────────────── -->
+<header class="topnav">
+  <div class="topnav-inner">
+    <div class="brand" data-nav="home">
+      <span class="brand-mark">🌾</span>
+      <span class="brand-name">Kisan Saathi</span>
+    </div>
+    <nav class="topnav-links">
+      <a href="#" data-nav="home" class="nav-link active">Home</a>
+      <a href="#" data-nav="profile" class="nav-link">Profile</a>
+    </nav>
+    <div class="topnav-actions">
+      <span class="lang-badge" title="8+ Indian languages">🌐 8+ languages</span>
+      <button class="btn btn-primary" data-nav="chat">💬 Kisan AI Saathi</button>
+    </div>
+  </div>
+</header>
+
+<main class="views">
+
+  <!-- ───────────────────────── HOME VIEW ───────────────────────── -->
+  <section id="view-home" class="view active">
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Kisan Saathi: Sahi Maloomat, Sahi Faisla</h1>
+        <p>AI-powered mandi prices and government scheme guidance for Indian farmers — ask a question, get a real answer, in your own language.</p>
+      </div>
+
+      <div class="hero-card card">
+        <h3 class="hero-card-title">Apni Yojana Dhoondhein</h3>
+        <div class="finder-row">
+          <label>
+            <span>State (राज्य)</span>
+            <select id="finder-state">
+              <option value="">Select State</option>
+              <option>Madhya Pradesh</option>
+              <option>Punjab</option>
+              <option>Maharashtra</option>
+              <option>Uttar Pradesh</option>
+            </select>
+          </label>
+          <label>
+            <span>Crop Type (फसल)</span>
+            <select id="finder-crop">
+              <option value="">Select Crop</option>
+              <option>Wheat</option>
+              <option>Rice</option>
+              <option>Soybean</option>
+              <option>Onion</option>
+              <option>Tomato</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn-primary btn-block" id="finder-submit">Yojana Dikhayein →</button>
+      </div>
+    </div>
+
+    <div class="services">
+      <h2 class="section-heading">Explore Services</h2>
+      <div class="service-grid">
+
+        <button class="service-card" data-nav="mandi">
+          <span class="service-icon">📈</span>
+          <span class="service-title">Mandi Bhaav</span>
+          <span class="service-desc">Check latest market prices for your crops across nearby mandis.</span>
+          <span class="service-link">View Prices →</span>
+        </button>
+
+        <button class="service-card" data-nav="yojana">
+          <span class="service-icon">📋</span>
+          <span class="service-title">Sarkari Yojanayein</span>
+          <span class="service-desc">Discover government schemes and subsidies available for you.</span>
+          <span class="service-link">Explore Schemes →</span>
+        </button>
+
+        <button class="service-card service-card-highlight" data-nav="chat">
+          <span class="new-badge">New</span>
+          <span class="service-icon">💬</span>
+          <span class="service-title">Kisan AI Saathi</span>
+          <span class="service-desc">Ask questions about farming, weather, and crop diseases in your language.</span>
+          <div class="chat-preview">
+            <div class="chat-preview-bubble">Namaste! Aap kaise madad chahte hain?</div>
+            <div class="chat-preview-input">
+              <span>Type message...</span>
+              <span class="chat-preview-icons">✈️ 🎤</span>
+            </div>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── MANDI VIEW ───────────────────────── -->
+  <section id="view-mandi" class="view">
+    <div class="page-header">
+      <span class="page-icon">📈</span>
+      <h2>Mandi Bhaav</h2>
+      <p>Ask about any crop's price or trend, and we'll query live mandi records for you.</p>
+    </div>
+    <div class="quick-grid" id="mandi-suggestions">
+      <button class="quick-card">What is the trend of wheat prices in Indore?</button>
+      <button class="quick-card">Average price of tomato in Bhopal?</button>
+      <button class="quick-card">Maximum price of onion in Maharashtra?</button>
+      <button class="quick-card">Show all crop prices in Punjab</button>
+    </div>
+    <p class="hint-text">Tap a suggestion, or open <strong>Kisan AI Saathi</strong> to ask your own question.</p>
+    <button class="btn btn-primary" data-nav="chat">Open Kisan AI Saathi →</button>
+  </section>
+
+  <!-- ───────────────────────── YOJANA VIEW ───────────────────────── -->
+  <section id="view-yojana" class="view">
+    <div class="page-header">
+      <span class="page-icon">📋</span>
+      <h2>Sarkari Yojanayein</h2>
+      <p>Check your eligibility for PM-KISAN, PMFBY and other schemes.</p>
+    </div>
+    <div class="quick-grid" id="yojana-suggestions">
+      <button class="quick-card">Am I eligible for PM-KISAN?</button>
+      <button class="quick-card">क्या मैं PMFBY फसल बीमा ले सकता हूँ?</button>
+      <button class="quick-card">What documents do I need for PM-KISAN?</button>
+      <button class="quick-card">Is a government employee eligible for PM-KISAN?</button>
+    </div>
+    <p class="hint-text">Tap a suggestion, or open <strong>Kisan AI Saathi</strong> to ask your own question.</p>
+    <button class="btn btn-primary" data-nav="chat">Open Kisan AI Saathi →</button>
+  </section>
+
+  <!-- ───────────────────────── CHAT VIEW ───────────────────────── -->
+  <section id="view-chat" class="view">
+    <div class="chat-shell">
+      <div class="chat-header">
+        <span class="chat-header-icon">💬</span>
+        <div>
+          <h2>Kisan AI Saathi</h2>
+          <p>Mandi prices &amp; scheme eligibility — ask in your own language</p>
+        </div>
+        <button class="btn btn-ghost btn-small" id="clear-chat">Clear</button>
+      </div>
+
+      <div class="chat-log" id="chat-log">
+        <div class="chat-empty" id="chat-empty">
+          <p>Try asking:</p>
+          <div class="quick-grid quick-grid-2">
+            <button class="quick-card">What is the trend of wheat prices in Indore?</button>
+            <button class="quick-card">Am I eligible for PM-KISAN?</button>
+            <button class="quick-card">क्या मैं PMFBY फसल बीमा ले सकता हूँ?</button>
+            <button class="quick-card">Average price of tomato in Bhopal?</button>
+          </div>
+        </div>
+      </div>
+
+      <form class="chat-input-row" id="chat-form">
+        <button type="button" class="mic-btn" id="mic-btn" title="Voice input">🎤</button>
+        <input type="text" id="chat-input" placeholder="पूछें / Ask your question..." autocomplete="off">
+        <button type="submit" class="send-btn" id="send-btn">➤</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── PROFILE VIEW ───────────────────────── -->
+  <section id="view-profile" class="view">
+    <div class="page-header">
+      <span class="page-icon">👤</span>
+      <h2>Profile</h2>
+      <p>Farmer profiles aren't wired up yet — this is a placeholder screen matching the app's navigation.</p>
+    </div>
+    <div class="card profile-card">
+      <p><strong>Languages supported</strong></p>
+      <div class="lang-chips">
+        <span>English</span><span>हिंदी</span><span>বাংলা</span><span>தமிழ்</span>
+        <span>తెలుగు</span><span>ಕನ್ನಡ</span><span>മലയാളം</span><span>ગુજરાતી</span>
+        <span>ਪੰਜਾਬੀ</span><span>ଓଡ଼ିଆ</span>
+      </div>
+      <p class="footnote">Demo project, not an official government service. Eligibility answers are general guidance — always confirm with your local CSC or bank branch before applying.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ───────────────────────── Bottom Nav (mobile) ───────────────────────── -->
+<nav class="bottomnav">
+  <button class="bottomnav-item active" data-nav="home">
+    <span class="bn-icon">🏠</span><span>Home</span>
+  </button>
+  <button class="bottomnav-item" data-nav="mandi">
+    <span class="bn-icon">📈</span><span>Mandi</span>
+  </button>
+  <button class="bottomnav-item" data-nav="yojana">
+    <span class="bn-icon">📋</span><span>Yojanayein</span>
+  </button>
+  <button class="bottomnav-item" data-nav="profile">
+    <span class="bn-icon">👤</span><span>Profile</span>
+  </button>
+</nav>
+
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

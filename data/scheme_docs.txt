@@ -1,0 +1,44 @@
+PM-KISAN (Pradhan Mantri Kisan Samman Nidhi) — Eligibility and Benefits
+
+PM-KISAN gives eligible farmer families Rs. 6,000 per year, paid in three installments of Rs. 2,000 every four months, directly into their Aadhaar-linked bank account.
+
+Who counts as a "farmer family": a husband, wife, and their minor children who together own cultivable agricultural land, as recorded in official state land records.
+
+Basic eligibility conditions:
+- Must be an Indian citizen.
+- The family must own cultivable land in their name, registered in official state or revenue land records.
+- The scheme mainly targets small and marginal farmers, generally those owning up to 2 hectares (about 5 acres), though the exact land limit can vary slightly by state.
+- The farmer must have an active bank account, and it should be Aadhaar-seeded for the payment to go through correctly.
+- Aadhaar-based eKYC is mandatory to receive payments; farmers can complete this through OTP verification on the PM-KISAN portal or app.
+
+Who is excluded, even if they own farmland:
+- Institutional landholders (land owned by companies/trusts, not individual families).
+- Anyone currently holding or who has previously held a constitutional post, or is a Minister, MP, MLA, Mayor, or chairperson of a local body.
+- Serving or retired government employees and officers of central/state departments, PSUs, or autonomous bodies — except Class IV / Group D staff, who remain eligible.
+- Pensioners receiving a monthly pension of Rs. 10,000 or more.
+- Anyone who paid income tax in the previous assessment year.
+- Professionals registered to practice as doctors, engineers, architects, lawyers, or chartered accountants.
+
+Common reasons applications get delayed or rejected: incorrect land record details, Aadhaar number not properly linked or "seeded" with the bank account (this is different from just having Aadhaar linked to the account — it needs to be seeded in the NPCI mapper specifically), or eKYC not completed.
+
+PM-KISAN registered farmers can also apply for a Kisan Credit Card (KCC), which allows borrowing up to Rs. 3 lakh without collateral, at subsidized interest rates, with repayment schedules aligned to crop cycles.
+
+---
+
+PMFBY (Pradhan Mantri Fasal Bima Yojana) — Crop Insurance Eligibility and Coverage
+
+PMFBY is the government's crop insurance scheme, protecting farmers financially against crop loss from droughts, floods, hailstorms, pest attacks, disease, cyclones, and unseasonal rain.
+
+Who is eligible: Any farmer growing a notified crop in a notified area during a notified season can apply — this includes both landowners who farm their own land and tenant farmers/sharecroppers. The scheme is voluntary for all farmers, including those who have taken agricultural loans. The key rule is that both your village and your specific crop must appear on your state's official PMFBY notification list for that season.
+
+What it costs the farmer: Farmers pay only a small fixed share of the premium — 2% of the sum insured for Kharif (monsoon-sown) crops, 1.5% for Rabi (winter-sown) crops, and 5% for horticultural/commercial crops. The government (central and state together) subsidizes the rest, which can be as much as 95-98% of the actual premium.
+
+What is covered: Losses from pre-sowing failure (if bad weather prevents planting at all) all the way through to post-harvest losses (damage within 14 days after harvest), plus, from Kharif 2026, wild animal attacks and paddy inundation are also covered in eligible areas.
+
+How claims are assessed: Primarily through Crop Cutting Experiments (CCEs) conducted on an area basis, with increasing use of drone and satellite imagery for faster, more transparent assessment.
+
+Enrollment deadlines: For Kharif season crops, the national enrollment deadline is July 31. For Rabi season crops, it is December 31. Missing the deadline means no coverage for that entire crop season — there are no late exceptions.
+
+Common reasons claims get rejected: incorrect or incomplete crop details not matching official records (in some states this must be confirmed through an e-Crop booking/registration system), losses not reported to the insurance company or bank within the required time window (typically 72 hours of the loss occurring), or the crop/village not being on the season's official notified list.
+
+Where to apply or check status: the official National Crop Insurance Portal at pmfby.gov.in, through your bank branch, or through a Common Service Centre (CSC).
