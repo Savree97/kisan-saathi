@@ -1,5 +1,6 @@
-streamlit
-streamlit-mic-recorder
+fastapi
+uvicorn[standard]
+python-multipart
 google-generativeai
 pandas
 numpy
