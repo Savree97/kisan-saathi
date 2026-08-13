@@ -20,7 +20,7 @@ def generate_scheme_answer(question: str, language: str = "en") -> str:
     # 1. Attempt primary Gemini generation
     if API_KEY:
         try:
-            model = genai.GenerativeModel("gemini-pro")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             prompt = f"""
 You are a friendly agricultural scheme advisor for Indian farmers. 
 The user asked in {target_lang}. You MUST answer strictly in {target_lang}. Do NOT output English.
@@ -48,7 +48,7 @@ User Question: {question}
     # This tries to summarize the specific question politely instead of a hardcoded paragraph
     if API_KEY:
         try:
-            model = genai.GenerativeModel("gemini-pro")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             fallback_prompt = f"""
 The user asked: "{question}" in {target_lang}.
 The main AI server is temporarily busy. Give a short, polite reply in {target_lang} stating the server is busy.

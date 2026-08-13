@@ -1,4 +1,5 @@
 import os
+import re
 import sqlite3
 import pandas as pd
 import numpy as np
@@ -26,17 +27,20 @@ LOCATION_MAP = {
 }
 
 def extract_entities(question: str):
+    """Match commodity/location as whole words, not raw substrings.
+    (Plain `in` matching previously let "rice" match inside "prices".)
+    """
     q_normalized = question.casefold()
     matched_comm = "Wheat"
     matched_loc = None
 
     for k, v in COMMODITY_MAP.items():
-        if k in q_normalized:
+        if re.search(rf"\b{re.escape(k)}\b", q_normalized):
             matched_comm = v
             break
-            
+
     for k, v in LOCATION_MAP.items():
-        if k in q_normalized:
+        if re.search(rf"\b{re.escape(k)}\b", q_normalized):
             matched_loc = v
             break
 

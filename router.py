@@ -14,7 +14,7 @@ def handle_audio_transcription(audio_bytes: bytes) -> str:
     if not API_KEY:
         return "Audio transcription requires a Gemini API Key."
     try:
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         prompt = "Transcribe this audio precisely in its native spoken script. Do not add commentary."
         response = model.generate_content([prompt, {"mime_type": "audio/wav", "data": audio_bytes}])
         return response.text.strip()
