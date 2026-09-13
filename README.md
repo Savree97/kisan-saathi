@@ -1,6 +1,7 @@
 # 🌾 Kisan Saathi — AI Agricultural Advisor
 
 **Mandi prices and government scheme eligibility, in your own language.**
+<<<<<<< HEAD
 
 Kisan Saathi is a bilingual/multilingual assistant that helps Indian farmers get two things fast: current mandi (market) price trends for their crops, and plain-language answers to "am I eligible for this scheme?" — grounded in actual government scheme documents, not just an AI's best guess.
 
@@ -235,3 +236,9 @@ No license has been specified yet. If you intend for this to be usable/forkable 
 ## Disclaimer
 
 Kisan Saathi is a demo/portfolio project, not an official government service. Eligibility answers are general guidance based on retrieved scheme text — always confirm details with your local Common Service Centre (CSC) or bank branch before applying.
+=======
+
+Kisan Saathi is a bilingual/multilingual assistant that helps Indian farmers get two things fast: current mandi (market) price trends for their crops, and plain-language answers to "am I eligible for this scheme?" — grounded in actual government scheme documents, not just an AI's best guess.
+
+**🔗 [Live Demo](https://kisan-saathi-production-c698.up.railway.app)** · [Report an Issue](../../issues)
+>>>>>>> ca5cfe27161c3e0a1b6aa585f70d65ba7776967a
