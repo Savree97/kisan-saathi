@@ -20,9 +20,13 @@ jobs:
     steps:
       - name: Ping app
         run: |
-          # RENDER_URL should be set as a repository secret/variable,
+          # RENDER_URL should be set as a repository variable,
           # e.g. https://kisan-saathi.onrender.com/
-          # Using -sf so the step fails (and shows red in Actions) if the
-          # app doesn't respond, which doubles as basic uptime monitoring.
-          curl -sf --max-time 20 "${{ vars.RENDER_URL }}" -o /dev/null
+          # --max-time 60: gives the app enough time to wake up from a
+          # cold start (spinning up from sleep can take 30-60s+).
+          # --retry 3 --retry-delay 10: retries a couple of times in case
+          # the first request hits the app mid-boot and gets a 502/503.
+          # -f: treat non-2xx responses as failures too, so a failed run
+          # in the Actions tab doubles as basic uptime monitoring.
+          curl -sf --max-time 60 --retry 3 --retry-delay 10 "${{ vars.RENDER_URL }}" -o /dev/null
         shell: bash
