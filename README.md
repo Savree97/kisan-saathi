@@ -1,59 +1,94 @@
 <div align="center">
 
-# 🌾 Kisan Saathi
-### AI Agricultural Advisor
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a5f3f,100:F2C94C&height=220&section=header&text=Kisan%20Saathi&fontSize=62&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Agricultural%20Advisor&descAlignY=58&descSize=20&descColor=ffffff" />
 
-**Mandi prices and government scheme eligibility — in your own language.**
+<a href="https://kisan-saathi-qjjl.onrender.com/">
+  <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=20&pause=1800&color=2E7D32&center=true&vCenter=true&width=650&lines=Mandi+prices+in+your+language.;Scheme+eligibility%2C+grounded+in+real+documents.;Ask+by+text+or+by+voice." alt="Typing SVG" />
+</a>
 
-[![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-kisan--saathi.onrender.com-2ea44f?style=for-the-badge)](https://kisan-saathi-qjjl.onrender.com/)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Gemini](https://img.shields.io/badge/LLM-Gemini_2.5_Flash-4285F4?style=flat-square&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
-[![ChromaDB](https://img.shields.io/badge/Vector_Store-ChromaDB-FF6F00?style=flat-square)](https://www.trychroma.com/)
-[![Tests](https://img.shields.io/badge/Tests-19_passing-brightgreen?style=flat-square)](#)
-[![Languages](https://img.shields.io/badge/Languages-8%2B-orange?style=flat-square)](#)
+<br><br>
+
+**[→ Open the live app](https://kisan-saathi-qjjl.onrender.com/)**
 
 </div>
 
----
-
-Kisan Saathi is a bilingual/multilingual assistant that helps Indian farmers get two things fast: **current mandi (market) price trends** for their crops, and **plain-language answers to "am I eligible for this scheme?"** — grounded in actual government scheme documents, not just an AI's best guess.
-
-Ask by text or voice. Get an answer with the actual source cited.
-
 <br>
 
-## 📑 Table of Contents
-
-| | | |
-|---|---|---|
-| [1. Overview](#1-overview) | [2. Project Structure](#2-project-structure) | [3. Features](#3-features) |
-| [4. API Endpoints](#4-api-endpoints) | [5. Preview](#5-preview) | [6. Architecture Diagram](#6-architecture-diagram) |
-| [7. Tech Stack](#7-tech-stack) | [8. Local Deployment](#8-local-deployment) | |
+> *Two things every farmer needs answered fast — "what's my crop worth right now?" and "am I eligible for this scheme?" — answered in 8+ Indian languages, with every scheme answer traceable back to the actual government document it came from.*
 
 <br>
-
-## 1. Overview
-
-Kisan Saathi answers two kinds of farmer questions, routed automatically to the right specialist agent:
-
-| | |
-|---|---|
-| 📈 **Price Agent** | Pulls historical mandi price data, returns trends, forecasts, and interactive Plotly charts. |
-| 📋 **Scheme Agent (RAG)** | Retrieves the exact relevant passage from PM-KISAN / PMFBY documents via vector search, then asks Gemini to answer *using that retrieved text* — not its general recollection. |
-
-The routing decision is made by an LLM call, with a keyword-based fallback so a Gemini outage never takes the app down.
 
 <div align="center">
 
-| 🌐 Languages | 🏛️ Schemes Covered | 🗺️ States of Price Data | 🧩 RAG Chunks | 🎯 Chunks Retrieved / Query | ✅ Tests |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| **8+** | **2** | **5** | **~14** | **Top 3** | **19/19** |
+**8+** languages&ensp;•&ensp;**2** schemes covered&ensp;•&ensp;**5** states of price data&ensp;•&ensp;**19/19** tests passing
 
 </div>
 
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:1a5f3f,100:F2C94C&height=3" />
+
 <br>
 
-## 2. Project Structure
+## Contents
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+**Product**
+- [1 · Overview](#1--overview)
+- [3 · Features](#3--features)
+- [5 · Preview](#5--preview)
+
+</td>
+<td width="33%" valign="top">
+
+**Engineering**
+- [2 · Project structure](#2--project-structure)
+- [4 · API endpoints](#4--api-endpoints)
+- [6 · Architecture](#6--architecture-diagram)
+
+</td>
+<td width="33%" valign="top">
+
+**Run it**
+- [7 · Tech stack](#7--tech-stack)
+- [8 · Local deployment](#8--local-deployment)
+
+</td>
+</tr>
+</table>
+
+<br>
+
+## 1 · Overview
+
+Every question that comes in — typed or spoken — is routed automatically to one of two specialist agents:
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 📈 Price Agent
+Pulls historical mandi price data and returns trends, forecasts, and interactive Plotly charts.
+
+</td>
+<td width="50%" valign="top">
+
+### 📋 Scheme Agent — RAG
+Retrieves the exact passage from PM-KISAN / PMFBY documents via vector search, then asks Gemini to answer *using that retrieved text* — not its general recollection.
+
+</td>
+</tr>
+</table>
+
+The routing call itself goes to Gemini first; if that fails, a keyword-based fallback keeps the app answering instead of breaking.
+
+<br>
+
+## 2 · Project structure
+
+<details open>
+<summary><b>Show file tree</b></summary>
 
 ```
 kisan-saathi/
@@ -77,62 +112,46 @@ kisan-saathi/
 └── requirements.txt
 ```
 
-<br>
-
-## 3. Features
-
-- 🔍 **Grounded RAG answers** — every scheme answer cites the actual retrieved source chunk, shown to the user as an expandable reference.
-- 🌐 **8+ Indian languages** — auto-detected via Unicode script ranges (Devanagari, Tamil, Telugu, Kannada, Gujarati, Bengali, Punjabi, and more).
-- 🎙️ **Voice input** — audio transcribed via Gemini, in addition to text.
-- 🔀 **Hybrid intent routing** — LLM classification with an automatic keyword fallback, so a Gemini outage degrades gracefully instead of breaking the app.
-- 📊 **Interactive price charts** — Plotly visualizations for mandi price trends and forecasts.
-- ✅ **Fully tested** — 19 pytest cases covering routing and retrieval, all mocked, running in seconds with no API key or network access.
-- ⚠️ **Honest disclaimers** — every eligibility answer is flagged as guidance, not final verification, pointing users to their nearest CSC or bank branch.
+</details>
 
 <br>
 
-## 4. API Endpoints
+## 3 · Features
 
-<table>
-<tr><td>
+| | |
+|---|---|
+| 🔍 **Grounded RAG answers** | Every scheme answer cites the actual retrieved source chunk, shown as an expandable reference. |
+| 🌐 **8+ Indian languages** | Auto-detected via Unicode script ranges — Devanagari, Tamil, Telugu, Kannada, Gujarati, Bengali, Punjabi, and more. |
+| 🎙️ **Voice input** | Audio transcribed via Gemini, in addition to text. |
+| 🔀 **Hybrid intent routing** | LLM classification with an automatic keyword fallback — a Gemini outage degrades gracefully instead of breaking the app. |
+| 📊 **Interactive price charts** | Plotly visualizations for mandi price trends and forecasts. |
+| ✅ **Fully tested** | 19 pytest cases covering routing and retrieval, fully mocked — seconds to run, no API key needed. |
+| ⚠️ **Honest disclaimers** | Every eligibility answer is flagged as guidance, not final verification, pointing to the nearest CSC or bank branch. |
+
+<br>
+
+## 4 · API endpoints
 
 **`POST /api/ask`**
-
-</td></tr>
-<tr><td>
 
 ```json
 { "question": "Am I eligible for PM-KISAN?", "language": "en" }
 ```
-
-`language` is optional — auto-detected from the question text if omitted.
-Returns the routed agent, the answer, and (for scheme questions) the retrieved source chunks used to ground the answer.
-
-</td></tr>
-</table>
-
-<table>
-<tr><td>
+`language` is optional — auto-detected from the question text if omitted. Returns the routed agent, the answer, and (for scheme questions) the retrieved source chunks used to ground it.
 
 **`POST /api/transcribe`**
 
-</td></tr>
-<tr><td>
-
 Accepts an audio file upload, returns transcribed text via Gemini.
-
-</td></tr>
-</table>
 
 <br>
 
-## 5. Preview
-
-> 🖼️ Add screenshots here — homepage, Scheme Agent answer with cited sources, price trend chart.
+## 5 · Preview
 
 <div align="center">
 
-| Homepage | Scheme Agent in Action |
+*Add screenshots here — homepage, a Scheme Agent answer with cited sources, a price trend chart.*
+
+| Homepage | Scheme Agent in action |
 |:---:|:---:|
 | *screenshot placeholder* | *screenshot placeholder* |
 
@@ -140,57 +159,57 @@ Accepts an audio file upload, returns transcribed text via Gemini.
 
 <br>
 
-## 6. Architecture Diagram
+## 6 · Architecture diagram
 
 ```
-                         User question
-                              │
-                              ▼
-              Language detection (Unicode script matching)
-                              │
-                              ▼
+                     User question
+                          │
+                          ▼
+          Language detection (Unicode script matching)
+                          │
+                          ▼
         Intent Router ── LLM classification (Gemini)
-              │                  └── falls back to ── keyword rules
-              │                                              │
-              ├──────────────────────┬───────────────────────┘
-              ▼                      ▼
-        Price Agent            Scheme Agent (RAG)
-   (SQL query templates              │
-    over mandi price data)           ▼
-                          1. Embed the question (Gemini embeddings)
-                          2. Query ChromaDB for top-3 relevant chunks
-                          3. Pass retrieved chunks + question to Gemini
-                          4. Return answer + the actual source chunks used
+              │              └── falls back to ── keyword rules
+              │                                          │
+              ├────────────────────┬─────────────────────┘
+              ▼                    ▼
+        Price Agent          Scheme Agent (RAG)
+   (SQL query templates            │
+    over mandi price data)         ▼
+                        1. Embed the question (Gemini embeddings)
+                        2. Query ChromaDB for top-3 relevant chunks
+                        3. Pass retrieved chunks + question to Gemini
+                        4. Return answer + the actual source chunks used
 ```
 
-Scheme documents are chunked **per-topic** (not fixed-size splitting) so related content — like a full "who is excluded" list — stays together as one retrievable unit. Chunks are embedded once, offline, via `build_index.py`, and stored in a persistent ChromaDB collection — so each live query only needs to embed the short user question, not the whole document corpus.
+Scheme documents are chunked **per-topic**, not by fixed-size splitting, so related content — like a full "who is excluded" list — stays together as one retrievable unit. Chunks are embedded once, offline, via `build_index.py`, and stored in a persistent ChromaDB collection, so each live query only needs to embed the short user question, never the whole document corpus.
 
 <br>
 
-## 7. Tech Stack
+## 7 · Tech stack
 
 <div align="center">
 
 | Layer | Technology |
-|---|---|
-| 🖥️ Backend API | FastAPI |
-| 🎨 Alternate UI | Streamlit |
-| 🧠 LLM / Generation | Google Gemini `gemini-2.5-flash` |
-| 🔢 Embeddings | Google Gemini `gemini-embedding-001` |
-| 🗂️ Vector Store | ChromaDB |
-| 💾 Price Data | SQLite + pandas |
-| 📊 Charts | Plotly |
-| 🧪 Testing | pytest + unittest.mock |
-| ☁️ Deployment | Render |
+|:--|:--|
+| Backend API | FastAPI |
+| Alternate UI | Streamlit |
+| LLM / generation | Google Gemini `gemini-2.5-flash` |
+| Embeddings | Google Gemini `gemini-embedding-001` |
+| Vector store | ChromaDB |
+| Price data | SQLite + pandas |
+| Charts | Plotly |
+| Testing | pytest + unittest.mock |
+| Deployment | Render |
 
 </div>
 
 <br>
 
-## 8. Local Deployment
+## 8 · Local deployment
 
 ```bash
-# 1. Clone and install
+# clone and install
 git clone https://github.com/Savree97/kisan-saathi.git
 cd kisan-saathi
 python -m venv .venv
@@ -198,23 +217,23 @@ source .venv/bin/activate     # macOS/Linux
 .venv\Scripts\activate        # Windows
 pip install -r requirements.txt
 
-# 2. Set up your API key
+# set up your API key
 echo "GOOGLE_API_KEY=your_gemini_api_key_here" > .env
-# Get a key at https://aistudio.google.com/apikey
+# get a key at https://aistudio.google.com/apikey
 
-# 3. Build the vector index (rebuild whenever scheme_docs.txt changes)
+# build the vector index (rerun whenever scheme_docs.txt changes)
 python build_index.py
 
-# 4. Load price data
+# load price data
 python load_prices.py
 
-# 5. Run the app
+# run the app
 uvicorn app:app --reload
-# or, Streamlit UI:
+# or, the Streamlit UI:
 streamlit run main.py
 ```
 
-**Run tests:**
+Run tests:
 ```bash
 pip install pytest
 python -m pytest tests/ -v
@@ -222,17 +241,12 @@ python -m pytest tests/ -v
 
 <br>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:F2C94C,100:1a5f3f&height=3" />
 
 <div align="center">
 
-### ⚠️ Disclaimer
+*Kisan Saathi is a demo/portfolio project, not an official government service. Eligibility answers are general guidance based on retrieved scheme text — always confirm details with your local Common Service Centre (CSC) or bank branch before applying.*
 
-Kisan Saathi is a demo/portfolio project, **not** an official government service.
-Eligibility answers are general guidance based on retrieved scheme text — always confirm details with your local Common Service Centre (CSC) or bank branch before applying.
-
-<br>
-
-**[🔗 Try the Live Demo](https://kisan-saathi-qjjl.onrender.com/)** · **[Report an Issue](https://github.com/Savree97/kisan-saathi/issues)**
+**[Live demo](https://kisan-saathi-qjjl.onrender.com/)** · **[Report an issue](https://github.com/Savree97/kisan-saathi/issues)**
 
 </div>
