@@ -149,11 +149,22 @@ Accepts an audio file upload, returns transcribed text via Gemini.
 
 <div align="center">
 
-*Add screenshots here — homepage, a Scheme Agent answer with cited sources, a price trend chart.*
+**Homepage**
 
-| Homepage | Scheme Agent in action |
-|:---:|:---:|
-| *screenshot placeholder* | *screenshot placeholder* |
+<img src="screenshots/homepage.png" width="85%" alt="Kisan Saathi homepage — mandi prices, scheme lookup, and the AI assistant entry points" />
+
+<br><br>
+
+**Scheme Agent — grounded RAG answer, in Hindi**
+
+<img src="screenshots/scheme-agent-answer.png" width="70%" alt="Scheme Agent answering a PMFBY eligibility question in Hindi, with sourced eligibility rules and a disclaimer" />
+
+<br><br>
+
+**Price Agent — trend chart + underlying query**
+
+<img src="screenshots/price-chart.png" width="70%" alt="Mandi price trend chart for tomato in Bhopal, with 14-day forecast" />
+<img src="screenshots/sql-query-details.png" width="70%" alt="Underlying SQL query and result row behind the price chart" />
 
 </div>
 
