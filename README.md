@@ -14,13 +14,13 @@
 
 <br>
 
-> *Two things every farmer needs answered fast — "what's my crop worth right now?" and "am I eligible for this scheme?" — answered in 8+ Indian languages, with every scheme answer traceable back to the actual government document it came from.*
+> *Two things every farmer needs answered fast — "what's my crop worth right now?" and "am I eligible for this scheme?" — answered in 8 Indian languages, with every scheme answer traceable back to the actual government document it came from.*
 
 <br>
 
 <div align="center">
 
-**8+** languages&ensp;•&ensp;**2** schemes covered&ensp;•&ensp;**5** states of price data&ensp;•&ensp;**19/19** tests passing
+**8** languages&ensp;•&ensp;**2** schemes covered&ensp;•&ensp;**5** states of price data&ensp;•&ensp;**19/19** tests passing
 
 </div>
 
@@ -121,7 +121,7 @@ kisan-saathi/
 | | |
 |---|---|
 | 🔍 **Grounded RAG answers** | Every scheme answer cites the actual retrieved source chunk, shown as an expandable reference. |
-| 🌐 **8+ Indian languages** | Auto-detected via Unicode script ranges — Devanagari, Tamil, Telugu, Kannada, Gujarati, Bengali, Punjabi, and more. |
+| 🌐 **8 Indian languages** | Auto-detected via Unicode script ranges — English, Hindi, Tamil, Telugu, Kannada, Gujarati, Bengali, and Punjabi. |
 | 🎙️ **Voice input** | Audio transcribed via Gemini, in addition to text. |
 | 🔀 **Hybrid intent routing** | LLM classification with an automatic keyword fallback — a Gemini outage degrades gracefully instead of breaking the app. |
 | 📊 **Interactive price charts** | Plotly visualizations for mandi price trends and forecasts. |
